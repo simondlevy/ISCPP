@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-plotsunspots.py : plot sunspot data from spreadsheet
+newtoncooling.py : Newton's formula for a cooling cup of coffee.
 
 Copyright (C) Simon D. Levy 2016
 
@@ -19,32 +19,23 @@ You should have received a copy of the GNU Lesser General Public License
 along with this code.  If not, see <http:#www.gnu.org/licenses/>.
 """
 
-# These packages will do most of our work for us
 from numpy import *
-from matplotlib.pyplot import *
 
-# Load the sunspot data into a NumPy array
-a = loadtxt("sunspots-no-header.csv", delimiter=",")
+def newtonCooling(T0,  Tenv,  k,  time):
+    """
+    newtonCooling(T0,  Tenv,  k,  time)
+    Temperature  of  a  cooling  object  at  any  given  time
+    T0   --  object's  temperature  at  time  0
+    Tenv --  environment's  temperature
+    k    --  time  constant  of  exponential  cooling
+    time --  the  time    
+    """
+    return Tenv  +  (T0  -  Tenv) * exp(-k*time)
 
-# The first column is the year
-year = a[:,0]
-
-# The second column in the month
-month = a[:,1]
-
-# The third column is the sunspots
-spots = a[:,2]
-
-# Compute the date
-time = year + (month - .5) / 12
-
-# Build the plot 
-plot(time, spots)
-
-# Add annotations
-xlabel('Year')
-ylabel('# of Sunspots')
-title('Sunspot Counts')
-
-# Show it!
-show()
+if __name__ == "__main__":
+    """
+    Example
+    """
+    t = linspace(0,10,100)
+    T0 = 98
+    print(newtonCooling(T0, 24.5, 0.0426, t))

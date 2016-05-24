@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-plotsunspots.py : plot sunspot data from spreadsheet
+twomeans.py : Illustrates returning two values from a function
 
 Copyright (C) Simon D. Levy 2016
 
@@ -19,32 +19,20 @@ You should have received a copy of the GNU Lesser General Public License
 along with this code.  If not, see <http:#www.gnu.org/licenses/>.
 """
 
-# These packages will do most of our work for us
-from numpy import *
-from matplotlib.pyplot import *
+from math import sqrt 
 
-# Load the sunspot data into a NumPy array
-a = loadtxt("sunspots-no-header.csv", delimiter=",")
+def  twomeans(a,b):  
+    """ 
+    twomeans(a,b) returns the arithmentic mean
+    (half of sum) and geometric mean (square
+    root of product) of inputs a and b.
+    """ 
+    arith  =  (a  +  b)/ 2.0 
+    geom =  sqrt(  a * b  )  
+    return arith, geom
 
-# The first column is the year
-year = a[:,0]
-
-# The second column in the month
-month = a[:,1]
-
-# The third column is the sunspots
-spots = a[:,2]
-
-# Compute the date
-time = year + (month - .5) / 12
-
-# Build the plot 
-plot(time, spots)
-
-# Add annotations
-xlabel('Year')
-ylabel('# of Sunspots')
-title('Sunspot Counts')
-
-# Show it!
-show()
+if __name__ == "__main__":
+    """
+    Example
+    """
+    print(twomeans(3,5))
