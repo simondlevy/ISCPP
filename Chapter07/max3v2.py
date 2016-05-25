@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-funplot.py : Plot a numerical function on a given interval
+max3v2.py : Deliberately broken code for returning the largest of three numbers
 
 Copyright (C) Simon D. Levy 2016
 
@@ -19,23 +19,20 @@ You should have received a copy of the GNU Lesser General Public License
 along with this code.  If not, see <http:#www.gnu.org/licenses/>.
 """
 
-from matplotlib.pyplot import *
-from numpy import *
-
-def  funplot(fun, low, high):
+def max3V2(a,b,c):
     """
-    funplot(fun, low, high]) graph a function fun(x)
-    in  the  domain  low  <=  x  <=  high
+    WARNING: This code is deliberately broken!
     """
-    
-    # 100 points is usually enough to give a smooth plot
-    xpts = linspace(low, high, 100)
-    ypts  =  fun(xpts)  
-    plot(xpts,  ypts)
-    show()
+    if a > b and  a > c:
+        res = a
+    elif b > a and  b > c:
+        res = b
+    else:
+        res = c
+    return res
 
 if __name__ == "__main__":
     """
     Example
     """
-    funplot(sin, 0, 2*pi)
+    print("The maximum of (3, 3, 1) is %d" % max3V2(3, 3, 1))

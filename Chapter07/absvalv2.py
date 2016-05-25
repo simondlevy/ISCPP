@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-funplot.py : Plot a numerical function on a given interval
+absvalv2.py : Absolute value function, second version
 
 Copyright (C) Simon D. Levy 2016
 
@@ -19,23 +19,18 @@ You should have received a copy of the GNU Lesser General Public License
 along with this code.  If not, see <http:#www.gnu.org/licenses/>.
 """
 
-from matplotlib.pyplot import *
-from numpy import *
+def absvalV2(x): 
 
-def  funplot(fun, low, high):
-    """
-    funplot(fun, low, high]) graph a function fun(x)
-    in  the  domain  low  <=  x  <=  high
-    """
-    
-    # 100 points is usually enough to give a smooth plot
-    xpts = linspace(low, high, 100)
-    ypts  =  fun(xpts)  
-    plot(xpts,  ypts)
-    show()
+    result = x
+
+    if x<0:
+        result = -x
+
+    return result
 
 if __name__ == "__main__":
     """
     Example
     """
-    funplot(sin, 0, 2*pi)
+    print(absvalV2(-5))
+    print(absvalV2(3))

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-funplot.py : Plot a numerical function on a given interval
+arrange2.py : Accept two numbers and return them as smaller, bigger
 
 Copyright (C) Simon D. Levy 2016
 
@@ -19,23 +19,23 @@ You should have received a copy of the GNU Lesser General Public License
 along with this code.  If not, see <http:#www.gnu.org/licenses/>.
 """
 
-from matplotlib.pyplot import *
-from numpy import *
-
-def  funplot(fun, low, high):
+def arrange2(a,b):
     """
-    funplot(fun, low, high]) graph a function fun(x)
-    in  the  domain  low  <=  x  <=  high
+    which of a and b is smaller and which is bigger
     """
-    
-    # 100 points is usually enough to give a smooth plot
-    xpts = linspace(low, high, 100)
-    ypts  =  fun(xpts)  
-    plot(xpts,  ypts)
-    show()
+    if a < b:
+        smaller = a
+        bigger = b
+    else:
+        smaller = b
+        bigger = a
+    return smaller,bigger
 
 if __name__ == "__main__":
     """
-    Example
+    Examples
     """
-    funplot(sin, 0, 2*pi)
+    print(arrange2(4,1))
+    print(arrange2(3,7))
+    print(arrange2(5,5))
+

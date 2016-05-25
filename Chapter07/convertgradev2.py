@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-funplot.py : Plot a numerical function on a given interval
+convertgradev2.py : Working code for converting a number grade to a letter grade
 
 Copyright (C) Simon D. Levy 2016
 
@@ -19,23 +19,23 @@ You should have received a copy of the GNU Lesser General Public License
 along with this code.  If not, see <http:#www.gnu.org/licenses/>.
 """
 
-from matplotlib.pyplot import *
-from numpy import *
-
-def  funplot(fun, low, high):
-    """
-    funplot(fun, low, high]) graph a function fun(x)
-    in  the  domain  low  <=  x  <=  high
-    """
-    
-    # 100 points is usually enough to give a smooth plot
-    xpts = linspace(low, high, 100)
-    ypts  =  fun(xpts)  
-    plot(xpts,  ypts)
-    show()
+def convertGradeV2( score ):
+    if score >= 90: 
+        return "A"
+    elif score >= 80: 
+        return "B"
+    elif score >= 70: 
+        return "C"
+    elif score >= 60: 
+        return "D"
+    else:
+        return "F"
 
 if __name__ == "__main__":
     """
-    Example
+    Examples
     """
-    funplot(sin, 0, 2*pi)
+    myscore = 89.5
+    print("A score of %3.1f produces a grade of %s" % (myscore, convertGradeV2(myscore)))
+    myscore = 92
+    print("A score of %3.1f produces a grade of %s" % (myscore, convertGradeV2(myscore)))
