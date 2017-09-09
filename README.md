@@ -1,4 +1,4 @@
-<img src="iscpp.jpg">
+<img src="iscpp.jpg" height=500>
 
 This repository contains Python programs and data files for the textbook
 [Introduction to Scientific Computation and Programming in Python](http://project-mosaic-books.com/?page_id=19)
